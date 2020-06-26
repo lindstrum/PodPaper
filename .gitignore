@@ -127,3 +127,23 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+#Intelij
+*.iml
+*.idea
+*/.idea/*
+.idea/*
+
+#VS Code
+*.settings
+*/.settings/*
+.settings/*
+*.vscode
+*/.vscode/*
+.vscode/*
+*.classpath
+*.project
+target/*
+*/target/*
+*.code-workspace
+*.metadata
