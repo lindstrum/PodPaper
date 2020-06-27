@@ -1,6 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 from matplotlib import image
+from PIL import Image, ImageDraw
 import cv2
 import random
 import itertools
@@ -48,17 +49,17 @@ def main(train_num, img_size, num_pieces, write=True, plot=False):
     
             x_center, y_center = x + width/2, y + height/2
             
-            good = True
+            #good = True
             
-            region = image[y:y+height, x:x+width]
-            if (all(x == 255 for x in itertools.chain(*region))):
-                good = False
+            #region = image[y:y+height, x:x+width]
+            #if (all(x == 255 for x in itertools.chain(*region))):
+            #    good = False
             #for l in centroids:
             #    if dist(l, (x_center, y_center)) < 200:
             #        good = False
 
-            if not good: break
-            centroids.append((x_center, y_center))
+            #if not good: break
+            #centroids.append((x_center, y_center))
             
             image[y:y+height, x:x+width] =  piece[:height,:width]
             if piece_type == 0:
@@ -80,7 +81,49 @@ def main(train_num, img_size, num_pieces, write=True, plot=False):
             cv2.imwrite("data_processed/%06d.png" % image_id, image)
             cv2.imwrite("data_truth/%06d.png" % image_id, image_truth)
 
+def make_text():
+    words = np.genfromtxt('words.txt', dtype='U')
+    MaxInt = words.size
+    
+    for j in range(200):
+        string = ''
+        for i in range(random.randint(5,35)):
+            if i % 10 == 9:
+                string += '\n'
+            string += words[random.randint(0, MaxInt)]+' '
+        
+        img = Image.new('RGB', (750, 80), color='white')
+        d = ImageDraw.Draw(img)
+        d.text((10, 10), string, fill=(0,0,0))
+        
+        x, y = img.size
+        new_img = img.resize((int(x*5), int(y*5)))
+        new_img.save('./text_data/%i.png' % j)
+
+def generate_pieces(ipath, opath):
+    equation_pieces = []
+    text_pieces = []
+    
+    for path in glob.glob(ipath):
+            print(path)
+            img = cv2.imread(path)[:,:,0]
+            print(img)
+            equation_pieces.append(img)
+            
+    
+    for path in glob.glob(opath):
+            print(path)
+            img = cv2.imread(path)[:,:,0]
+            print(img)
+            text_pieces.append(img)
+    
+    np.save("equation_pieces", equation_pieces)
+    np.save("text_pieces", text_pieces)
+
 plt.close("all")
+
+make_text()
+generate_pieces("./equation_data/*.png", "./text_data/*.png")
 main(train_num=50,
      img_size=3000,
      num_pieces=20,
