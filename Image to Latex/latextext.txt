@@ -1,0 +1,7 @@
+ EXAMPLE 6 Insert math here. Gonna probably include something about and image. Gonna probably include something about and image. Insert math here. Insert math here. A point or a particle moving arbitrarily in space may always be considered, at a
+given instant, to be moving in a plane, circular path about a certain axis; that is,
+the path a particle describes during an infinitesimal time interval 6¢ may be rep-
+resented as an infinitesimal arc of a circle. The line passing through the center
+of the circle and perpendicular to the instantaneous direction of motion is
+called the instantaneous axis of rotation. As the particle moves in the circular
+path, the rate of change of the angular position is called the angular velocity:
