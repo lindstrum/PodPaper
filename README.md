@@ -1,9 +1,5 @@
 # Latex2Speech
 
-<a href="http://www.youtube.com/watch?feature=player_embedded&v=f8mBAKDy9n0
-" target="_blank"><img src="http://img.youtube.com/vi/f8mBAKDy9n0/0.jpg" 
-alt="Video Description of Interface" width="240" height="180" border="10" /></a>
-
 As the COVID-19 epidemic continually shifts how we interact with one another through our digital devices, it has become evident that the constant exposure to screens dwindles to focus of the researcher. 
 Long hours spent looking at code, reading websites and interfacing with one another through video and voice calls leaves the mind and eyes quite exhausted when it comes time to read articles. To aid with 
 this, we have divised a system that can take in a generic PDF of an article, textbook, etc. and coverts it to an interactive audiobook. The goal of this project is to alleviate the strain from visual 
@@ -15,8 +11,13 @@ The code is comprised of three major pieces.
 2. A translator that uses open source software to convert the parsed pdf into a full LATEX document.
 3. A text to speech system tied to a decision tree that allows the user to listen along to the document at their own speed.
 
-
 ![alt text](Capture.PNG)
+
+##Descriptive Video!
+
+<a href="http://www.youtube.com/watch?feature=player_embedded&v=f8mBAKDy9n0
+" target="_blank"><img src="http://img.youtube.com/vi/f8mBAKDy9n0/0.jpg" 
+alt="Video Description of Interface" width="240" height="180" border="10" /></a>
 
 ## Dependencies
 This package is tested for python 3.7. It requires the following dependencies at the moment:
