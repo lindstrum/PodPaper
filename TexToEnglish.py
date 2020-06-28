@@ -32,7 +32,7 @@ def getEnglish(inString):
         letterIndex = 0
         startingIndex = 0
         for j in range(0, len(stringArr[i])):
-            print(Eng_String)
+#            print(Eng_String)
             letter = (stringArr[i])[j]
 
             if (j == len(stringArr[i])-1):
@@ -133,7 +133,7 @@ def findCommand(stringEntry, startIndex, endIndex):
         return commandString[3, len(commandString)]
 
     # manual override to deal with brackets
-    print(commandString)
+#    print(commandString)
     if (commandString == "left" or commandString == "right"):
         try:
             if (stringEntry[endIndex] == "(" or stringEntry[endIndex] == ")"):
@@ -266,7 +266,7 @@ def closeComplexCommand():
     if ("sub" in commandType):
         counters["sub"] -= 1
         outString = ", end of " + intToWord[commandNum] + " subscript,"
-        print(outString)
+#        print(outString)
     if ("sqrt" in commandType):
         counters["sqrt"] -= 1
         outString = ", end of " + intToWord[commandNum] + " square root,"
