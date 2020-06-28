@@ -26,7 +26,7 @@ class Model(nn.Module):
         x = self.pooling(x)
         x = F.relu(self.conv2(x))
         x = self.pooling(x)
-        x = F.relu(self.conv3(x))
+        x = F.sigmoid(self.conv3(x))*255
         # x = F.relu(self.conv4(x))
         # x = F.relu(self.conv5(x))
         return x
@@ -37,8 +37,8 @@ if __name__ == "__main__":
     if t.cuda.is_available():  # verifies if gpu is available on the current machine
         model = model.cuda()  # transfers the model to gpu memory
 
-    optimizer = optim.Adam(model.parameters(), lr=0.001)
-    criterion = nn.MSELoss()
+    optimizer = optim.Adam(model.parameters(), lr=0.0001)
+    criterion = nn.KLDivLoss()
 
     data = t.Tensor(np.load("data_processed.npy")).cuda()
     answers = t.Tensor(np.load("data_truth.npy")).cuda()
@@ -60,6 +60,7 @@ if __name__ == "__main__":
             # forward + backward + optimize
             outputs = model(inputs)
             # print(outputs.shape)
+
             loss = criterion(outputs, solutions.cuda())
             loss.backward()
             optimizer.step()
@@ -73,7 +74,7 @@ if __name__ == "__main__":
     print('Finished Training')
 
     valout = model(validation)
-    plt.imshow(valians[0, 0].cpu())
+    plt.imshow(valians[1, 0].cpu())
     plt.show()
-    plt.imshow(valout[0, 0].cpu().detach().numpy())
+    plt.imshow(valout[1, 0].cpu().detach().numpy())
     plt.show()

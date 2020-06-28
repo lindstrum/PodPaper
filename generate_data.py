@@ -17,8 +17,8 @@ def main(train_num, img_size, num_pieces, write=True, plot=False):
     equation_pieces = np.load('equation_pieces.npy', allow_pickle=True)
     text_pieces = np.load("text_pieces.npy")
 
-    data = np.ones([train_num, 1, img_size, img_size])*255
-    answer = np.ones([train_num, 3, img_size, img_size])*255
+    data = np.ones([train_num, 1, img_size, img_size], dtype='uint8')*255
+    answer = np.ones([train_num, 3, img_size, img_size], dtype='uint8')*255
 
     for image_id in tqdm(range(train_num)):
         # np.ones([1, img_size, img_size])*255  # data[image_id]
@@ -142,7 +142,7 @@ plt.close("all")
 
 # make_text()
 # generate_pieces("./equation_data/*.png", "./text_data/*.png")
-main(train_num=500,
-     img_size=500,
+main(train_num=100,
+     img_size=700,
      num_pieces=20,
      write=True, plot=False)
