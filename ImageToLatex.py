@@ -1,3 +1,4 @@
+#Translator. Takes in text file containing image names, converts images with those names to latex code, and outputs tha latex code
 try:
     from PIL import Image
 except ImportError:
