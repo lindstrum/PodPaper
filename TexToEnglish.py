@@ -32,7 +32,6 @@ def getEnglish(inString):
         letterIndex = 0
         startingIndex = 0
         for j in range(0, len(stringArr[i])):
-#            print(Eng_String)
             letter = (stringArr[i])[j]
 
             if (j == len(stringArr[i])-1):
@@ -59,7 +58,7 @@ def getEnglish(inString):
                 command = findCommand(stringArr[i], startingIndex, j)
                 Eng_String += str(command) + " "
                 startingIndex = j+1
-                
+
             if (letter == "}"):
                 if (j - startingIndex != 0):
                     command = findCommand(stringArr[i], startingIndex, j)
@@ -133,7 +132,6 @@ def findCommand(stringEntry, startIndex, endIndex):
         return commandString[3, len(commandString)]
 
     # manual override to deal with brackets
-#    print(commandString)
     if (commandString == "left" or commandString == "right"):
         try:
             if (stringEntry[endIndex] == "(" or stringEntry[endIndex] == ")"):
@@ -208,6 +206,9 @@ def startComplexCommand(stringEntry, startIndex, endIndex):
     if (key == "vect"):
         outString = "vector"
         bufferInsert += "_0"
+    if (key == "tilde"):
+        outString = "tilde"
+        bufferInsert += "_0"
     if (key == "bracket_open"):
         counters["bracket"] += 1
         bufferInsert += str(counters["bracket"])
@@ -266,11 +267,13 @@ def closeComplexCommand():
     if ("sub" in commandType):
         counters["sub"] -= 1
         outString = ", end of " + intToWord[commandNum] + " subscript,"
-#        print(outString)
+        print(outString)
     if ("sqrt" in commandType):
         counters["sqrt"] -= 1
         outString = ", end of " + intToWord[commandNum] + " square root,"
     if ("vect" in commandType):
+        outString = ""
+    if ("tilde" in commandType):
         outString = ""
 
     # Remove the command in the first place of the flagBuffer
@@ -344,7 +347,8 @@ def setUp():
         ")": "bracket_close",
         "int": "int",
         "sqrt": "sqrt",
-        "vect": "vect"
+        "vect": "vect",
+        "tilde": "tilde"
     }
     global specialCharToWord
     specialCharToWord = {
