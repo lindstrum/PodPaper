@@ -20,7 +20,7 @@ import copy
 from datetime import datetime 
 
 from DocumentClasses import Article
-from DocumentClasses import TextBlock
+from DocumentClasses import WorkText
 from DocumentClasses import Figure
 from DocumentClasses import OOLEquation
 
@@ -47,7 +47,7 @@ class Reader:
 
     def GetcontentFromElement(self, element):
         elementType = element.type
-        if elementType == TextBlock:
+        if elementType == WorkText:
             return element.GetFullContent()
         elif elementType == Figure:
             return element.GetDescription().GetFullContent()
