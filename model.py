@@ -15,11 +15,20 @@ class Model(nn.Module):
     def __init__(self):
         super(Model, self).__init__()
         self.conv1 = nn.Conv2d(1, 4, 3, padding=1)
-        self.conv2 = nn.Conv2d(4, 3, 3, padding=1)
+        self.conv2 = nn.Conv2d(4, 4, 7, padding=3)
+        self.pooling = nn.MaxPool2d(11, stride=1, padding=5)
+        self.conv3 = nn.Conv2d(4, 3, 11, padding=5)
+        # self.conv4 = nn.Conv2d(4, 4, 15, padding=7)
+        # self.conv5 = nn.Conv2d(4, 3, 19, padding=9)
 
     def forward(self, x):
         x = F.relu(self.conv1(x))
+        x = self.pooling(x)
         x = F.relu(self.conv2(x))
+        x = self.pooling(x)
+        x = F.relu(self.conv3(x))
+        # x = F.relu(self.conv4(x))
+        # x = F.relu(self.conv5(x))
         return x
 
 
@@ -28,8 +37,8 @@ if __name__ == "__main__":
     if t.cuda.is_available():  # verifies if gpu is available on the current machine
         model = model.cuda()  # transfers the model to gpu memory
 
-    optimizer = optim.Adam(model.parameters(), lr=0.0005)
-    criterion = nn.BCELoss()
+    optimizer = optim.Adam(model.parameters(), lr=0.001)
+    criterion = nn.MSELoss()
 
     data = t.Tensor(np.load("data_processed.npy")).cuda()
     answers = t.Tensor(np.load("data_truth.npy")).cuda()
@@ -37,7 +46,7 @@ if __name__ == "__main__":
     valians = t.Tensor(np.load("data_truth1.npy")[:2]).cuda()
 
     dataset = feeder.TensorDataset(data, answers)
-    loader = feeder.DataLoader(dataset, batch_size=2)
+    loader = feeder.DataLoader(dataset, batch_size=20)
 
     for epoch in range(2):  # loop over the dataset multiple times
 
