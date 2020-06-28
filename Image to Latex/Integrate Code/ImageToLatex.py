@@ -55,7 +55,6 @@ def image_to_math( image_name):
 def text_format( text_string ):
     if 'figure' in text_string[0:6].lower():
         text_string = '\caption{' + text_string  
-        ##text_string = text_string.replace('\n\n‘','}\n\end{figure}\paragraph{}')
         text_string = text_string.replace('\n\n','}\n\end{figure}\paragraph{}',1)             
     text_string = text_string.replace('\n\n \n\n','\paragraph{}')
     text_string = text_string.replace('\n\n‘','\paragraph{}')
@@ -63,6 +62,18 @@ def text_format( text_string ):
     text_string = text_string.replace('-\n','')
     text_string = text_string.replace('\n‘',' ')
     text_string = text_string.replace('\n',' ')
+    text_string = text_string.replace('{','\{')
+    text_string = text_string.replace('}','\}')
+    text_string = text_string.replace('&','\&')
+    text_string = text_string.replace('%','\%')
+    text_string = text_string.replace('$','\$')
+    text_string = text_string.replace('#','\#')
+    text_string = text_string.replace('_','\_')
+    text_string = text_string.replace('^','\^')
+    text_string = text_string.replace('~','\~')        
+    text_string = text_string.replace('\\','\\\')
+
+
     return text_string
 
 
