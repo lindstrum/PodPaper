@@ -48,6 +48,5 @@ Most of the static UI elements are implemented. However, there are things that a
 All static web files are located in resources/static_web_files
 
 ## TEST Audio
-This audio is run through our math engine to read out the following text. It was not converted through our image recognition software but it is a taste of what our engine is capable of!
+This audio is run through our math engine to read out the following text. It was not converted through our image recognition software but it is a taste of what our engine is capable of! The audio is in the repo but have a listen!
 ![Test Image of Latex Reading](testtext.PNG)
-![Test Audio for the image](TestFileConverted.mp3)
