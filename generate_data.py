@@ -8,7 +8,6 @@ import itertools
 import glob
 from tqdm import tqdm
 
-
 def dist(p1, p2):
     return np.sqrt((p1[0]-p2[0])**2 + (p1[1]-p2[1])**2)
 
@@ -101,6 +100,7 @@ def main(train_num, img_size, num_pieces, write=True, plot=False):
 def make_text():
     words = np.genfromtxt('words.txt', dtype='U')
     MaxInt = words.size
+
 
     for j in range(200):
         string = ''
