@@ -55,7 +55,11 @@ def getEnglish(inString):
 
                 continue
 
-
+            if (letter == " "):
+                command = findCommand(stringArr[i], startingIndex, j)
+                Eng_String += str(command) + " "
+                startingIndex = j+1
+                
             if (letter == "}"):
                 if (j - startingIndex != 0):
                     command = findCommand(stringArr[i], startingIndex, j)
@@ -251,16 +255,16 @@ def closeComplexCommand():
     if ("frac" in commandType):
         if ("denom" in commandType):
             outString = ", end of " + intToWord[commandNum] + " denominator,"
-            counters["frac"] -= 1    
+            counters["frac"] -= 1
             frac_flag = False
         elif ("numer" in commandType):
             outString = ", end of " + intToWord[commandNum] + " numerator,"
             frac_flag = True
     if ("exp" in commandType):
-        counters["exp"] -= 1     
+        counters["exp"] -= 1
         outString = ", end of " + intToWord[commandNum] + " exponant,"
     if ("sub" in commandType):
-        counters["sub"] -= 1  
+        counters["sub"] -= 1
         outString = ", end of " + intToWord[commandNum] + " subscript,"
         print(outString)
     if ("sqrt" in commandType):
