@@ -313,8 +313,9 @@ class Paragraph:
                 CleanedSentences.append(cleanSentence)
                 continue
             rawEquation = cleanSentence[firstPos+1:lastPos]
-            #cleanEquation = TexToEnglish.getEnglish(rawEquation)
-            cleanEquation = rawEquation
+            print(rawEquation)
+            cleanEquation = TexToEnglish.getEnglish(rawEquation)
+#            cleanEquation = rawEquation
             cleanSentence = cleanSentence.replace(rawEquation, cleanEquation)
             cleanSentence = cleanSentence.replace("$", "")
             CleanedSentences.append(cleanSentence)
