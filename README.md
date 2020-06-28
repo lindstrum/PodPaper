@@ -5,6 +5,8 @@ Long hours spent looking at code, reading websites and interfacing with one anot
 this, we have divised a system that can take in a generic PDF of an article, textbook, etc. and coverts it to an interactive audiobook. The goal of this project is to alleviate the strain from visual 
 focus and allow the reader to relax with their eyes closed and listen to a paper that is read in a convenient way for understanding its contents.
 
+![alt text](Capture.PNG)
+
 This package is tested for python 3.7. It requires the following dependencies at the moment:
 - Anaconda (installed from website)
 - PyTorch 1.5.1 (CUDA 10.1 for training) (conda install pytorch torchvision cudatoolkit=10.1 -c pytorch)
