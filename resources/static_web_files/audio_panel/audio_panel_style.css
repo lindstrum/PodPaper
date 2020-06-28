@@ -1,0 +1,23 @@
+div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    /*Keep background color the same as behind the element*/
+    background-color: transparent;
+}
+
+#audio_panel {
+    flex-direction: column;
+}
+
+#audio_buttons {
+    flex-direction: row;
+}
+
+button {
+    height: 40px;
+    width: 40px;
+    font-size: 18px;
+    border-radius: 100%;
+}

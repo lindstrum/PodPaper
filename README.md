@@ -5,8 +5,22 @@ Long hours spent looking at code, reading websites and interfacing with one anot
 this, we have divised a system that can take in a generic PDF of an article, textbook, etc. and coverts it to an interactive audiobook. The goal of this project is to alleviate the strain from visual 
 focus and allow the reader to relax with their eyes closed and listen to a paper that is read in a convenient way for understanding its contents.
 
-![alt text](Capture.PNG)
+![DataFlow](DataFlow.PNG)
 
+The code is comprised of three major pieces. 
+1. A CNN that parses a PNG/PDF document for text, math, and figures.
+2. A translator that uses open source software to convert the parsed pdf into a full LATEX document.
+3. A text to speech system tied to a decision tree that allows the user to listen along to the document at their own speed.
+
+![Sample UI](Capture.PNG)
+
+## Descriptive Video!
+
+<a href="http://www.youtube.com/watch?feature=player_embedded&v=f8mBAKDy9n0
+" target="_blank"><img src="http://img.youtube.com/vi/f8mBAKDy9n0/0.jpg" 
+alt="Video Description of Interface" width="240" height="180" border="10" /></a>
+
+## Dependencies
 This package is tested for python 3.7. It requires the following dependencies at the moment:
 - Anaconda (installed from website)
 - PyTorch 1.5.1 (CUDA 10.1 for training) (conda install pytorch torchvision cudatoolkit=10.1 -c pytorch)
@@ -14,12 +28,9 @@ This package is tested for python 3.7. It requires the following dependencies at
 - For Ubuntu users we recommend Espeak as the audio engine for Pyttsx3. (sudo apt-get install espeak)
 - For Windows users we recommend SAPI5 but it ships as part of the Windows OS as of Vista.
 
-The code is comprised of three major pieces. 
-1. A CNN that parses a PNG/PDF document for text, math, and figures.
-2. A translator that uses open source software to convert the parsed pdf into a full LATEX document.
-3. A text to speech system tied to a decision tree that allows the user to listen along to the document at their own speed.
 
 ## CNN
+The CNN is comprised of a data creator generate_data.py that creates a numpy array of black and white images of text and math as well as a 3 channel image that designates where the text and math is. Currently there is no support for figures and tables in this data generator and it is dependent on the folders text_data and equation_data. Data is generated with the `python generate_data.py` command. The CNN can be trained by executing `python model.py` but needs substantial modifications still.
 
 
 ## Translator

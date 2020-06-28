@@ -1,0 +1,21 @@
+* {
+    background-color: #00d9ff;
+    font-size: 18px;
+}
+
+home-screen, loading-screen {
+    font-family: 'Karla', sans-serif;
+}
+
+loading-screen img, home-screen img {
+    width: 25%;
+    height: 25%;
+}
+
+audio-panel button {
+    height: 40px;
+    width: 40px;
+    border-radius: 100%;
+    background-color: white;
+    color: navy;
+}

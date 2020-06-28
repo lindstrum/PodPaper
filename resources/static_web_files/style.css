@@ -1,0 +1,71 @@
+
+* {
+    font-family: 'Karla', sans-serif;
+    background-color: #00d9ff;
+}
+
+html, body, div {
+    display: flex;
+}
+
+html, body{
+    width: 100%;
+    height: 100%;
+    flex-direction: column;
+    align-items: center;
+}
+
+#display {
+    flex-direction: row;
+    flex-grow: 1;
+    width: 100%;
+}
+
+#viewer {
+    width: 50%;
+    height: 100%;
+}
+
+#elements {
+    width: 50%;
+}
+#controls {
+    flex-direction: column;
+}
+
+img {
+    width: 100px;
+    height: 100px;
+}
+
+button {
+    height: 40px;
+    width: 40px;
+    font-size: 18px;
+    border-radius: 100%;
+    margin: 5px;
+}
+
+#elements {
+    flex-direction: column;
+    background-color: grey;
+    align-items: center;
+}
+
+h2 {
+    background-color: transparent;
+}
+
+#chose {
+    background-color: darkgrey;
+}
+
+.element {
+    background-color: lightblue;
+
+}
+
+.element {
+    flex-direction: row;
+    width: 100%;
+}
