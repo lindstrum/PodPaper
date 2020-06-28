@@ -40,3 +40,9 @@ The translator takes in a text file containing the names of all the image files 
 ## TTS 
 
 The DocumentClasses.py file contains the various classes used to separate the elements of the file, namely the paragraphs, figures, and equations. It calls the `getEnglish()` function from TexToEnglish script to convert the equations into english words. The document now consists of a number of text, figure, and equation blocks which are then sent to the t2s.py script which creates a .mp3 file. Based on the user's input the mp3 file is made using various options such as adding pauses whenever a figure is referenced based.
+
+## Web User Interface
+
+The PodPaperApp.py is the controller of the entire application. It takes in data from the user via HTTP requests, passes it to the components above, and return a list of data back to the website. This data returned includes an MP3 file as well as timestamps for each paragraph and figure that indicate the part of the MP3 where that paragraph or figure starts.
+Most of the static UI elements are implemented. However, there are things that are not implemented here as well. This include the RESTful interface, the responcive web design, and the logic class for managing the MP3 file.
+All static web files are located in resources/static_web_files
