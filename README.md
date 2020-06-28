@@ -28,4 +28,4 @@ The translator takes in a text file containing the names of all the image files 
 
 ## TTS 
 
-The DocumentClasses.py file contains the various classes used to separate the elements of the file, namely the paragraphs, figures, and equations. It calls the 'getEnglish()' function from TexToEnglish script to convert the equations into english words. The document now consists of a number of text, figure, and equation blocks which are then sent to the t2s.py script which creates a .mp3 file. Based on the user's input the mp3 file is made using various options such as adding pauses whenever a figure is referenced based.
+The DocumentClasses.py file contains the various classes used to separate the elements of the file, namely the paragraphs, figures, and equations. It calls the `getEnglish()` function from TexToEnglish script to convert the equations into english words. The document now consists of a number of text, figure, and equation blocks which are then sent to the t2s.py script which creates a .mp3 file. Based on the user's input the mp3 file is made using various options such as adding pauses whenever a figure is referenced based.
