@@ -147,3 +147,4 @@ target/*
 */target/*
 *.code-workspace
 *.metadata
+.DS_Store
