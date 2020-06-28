@@ -45,9 +45,6 @@ def write_to_textfile( file_name ):
     return
 
 
-
-
-
 def image_to_text( image_name ):
     #return image text as string
     text_string = pytesseract.image_to_string(Image.open(image_name))
@@ -85,11 +82,4 @@ def text_format( text_string ):
     return text_string
 
 
-
-
 main('ExampleImage.txt', 'latextext.txt')
-
-
-#read_thru_file('Image.txt')
-#print(image_names_list)
-#write_to_textfile('latextext.txt')
