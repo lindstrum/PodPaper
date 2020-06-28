@@ -72,7 +72,6 @@ def getEnglish(inString):
             if (letter in specialChar):
                 # Manual override for brackets
                 if (letter == "(" or letter == ")"):
-                    print("In bracket manual override")
                     command = findCommand(stringArr[i], startingIndex, j)
                     Eng_String += str(command) + " "
                     command = startComplexCommand(letter, 0, 1)
@@ -108,7 +107,6 @@ def getEnglish(inString):
                     startingIndex = j+1
 
     Eng_String = cleanString(Eng_String)
-    print(Eng_String)
     return Eng_String
 
 def findCommand(stringEntry, startIndex, endIndex):
@@ -167,7 +165,6 @@ def startComplexCommand(stringEntry, startIndex, endIndex):
     substring = substring.strip()
     if (substring[len(substring)-1] == "{"):
         substring = substring[0:len(substring)-1]
-    #print(substring)
 
     if (len(substring) == 0):
         if (frac_flag):
@@ -179,8 +176,6 @@ def startComplexCommand(stringEntry, startIndex, endIndex):
             key = compCommandToKey[substring]
         except:
             return -1
-
-    #print("Got key: " + key)
 
     # bufferInsert is the string that gets inserted into the flagBuffer. This contains a key to denote what command
     # has been started, as well as a number to indicate nesting of that command
@@ -238,7 +233,6 @@ def startComplexCommand(stringEntry, startIndex, endIndex):
         for buf in range(0, len(temp_flagBuffer)):
             flagBuffer.append(temp_flagBuffer[buf])
 
-    #print(flagBuffer)
     return outString
 
 def closeComplexCommand():
@@ -248,27 +242,25 @@ def closeComplexCommand():
     global int_flag
     global frac_flag
     global counters
-    #print(flagBuffer)
+
     commandType = (flagBuffer[0])[0:len(flagBuffer[0])-2]
     firstFlagBuffer = flagBuffer[0]
-    #print(firstFlagBuffer)
     commandNum = int(firstFlagBuffer[len(firstFlagBuffer)-1])
-    #print(commandNum)
     outString = ""
 
     if ("frac" in commandType):
         if ("denom" in commandType):
             outString = ", end of " + intToWord[commandNum] + " denominator,"
-            counters["frac"] -= 1    #frac_counter -= 1
+            counters["frac"] -= 1    
             frac_flag = False
         elif ("numer" in commandType):
             outString = ", end of " + intToWord[commandNum] + " numerator,"
             frac_flag = True
     if ("exp" in commandType):
-        counters["exp"] -= 1     #exp_counter -= 1
+        counters["exp"] -= 1     
         outString = ", end of " + intToWord[commandNum] + " exponant,"
     if ("sub" in commandType):
-        counters["sub"] -= 1    #sub_counter -= 1
+        counters["sub"] -= 1  
         outString = ", end of " + intToWord[commandNum] + " subscript,"
         print(outString)
     if ("sqrt" in commandType):
@@ -283,7 +275,6 @@ def closeComplexCommand():
     for k in range(1, len(temp_flagBuffer)):
         flagBuffer.append(temp_flagBuffer[k])
 
-    #print(outString)
     return outString
 
 def cleanString(inString):
