@@ -21,8 +21,11 @@ The code is comprised of three major pieces.
 
 ## CNN
 
+
 ## Translator
 
 The translator takes in a text file containing the names of all the image files generatored by the CNN. It determines which files are images of text, images of math, or images of figures, then uses pytesseract and im2markup to convert the images of text and images of math to latex tex and math respectively. It then write this latex code to another text file for use by the TTS. Currently image of math to latex math does not work and code cannot properly converting text with special characters {, }, and \\.
 
 ## TTS 
+
+The DocumentClasses.py file contains the various classes used to separate the elements of the file, namely the paragraphs, figures, and equations. It calls the 'getEnglish()' function from TexToEnglish script to convert the equations into english words. The document now consists of a number of text, figure, and equation blocks which are then sent to the t2s.py script which creates a .mp3 file. Based on the user's input the mp3 file is made using various options such as adding pauses whenever a figure is referenced based.
