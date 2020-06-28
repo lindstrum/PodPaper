@@ -66,7 +66,9 @@ def text_format( text_string ):
     #Note text with special characters {, }, \ cannot be completely formatted
     if 'figure' in text_string[0:6].lower():
         text_string = '\caption{' + text_string  
-        text_string = text_string.replace('\n\n','}\n\end{figure}\paragraph{}',1)             
+        text_string = text_string.replace('\n\n','}\n\end{figure}\paragraph{}',1) 
+    else:
+        text_string = text_string.replace('\n\n','\n\end{figure}\paragraph{}',1) 
     text_string = text_string.replace('\n\n \n\n','\paragraph{}')
     text_string = text_string.replace('\n\n‘','\paragraph{}')
     text_string = text_string.replace('\n\n','\paragraph{}')
