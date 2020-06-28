@@ -5,15 +5,16 @@ Long hours spent looking at code, reading websites and interfacing with one anot
 this, we have divised a system that can take in a generic PDF of an article, textbook, etc. and coverts it to an interactive audiobook. The goal of this project is to alleviate the strain from visual 
 focus and allow the reader to relax with their eyes closed and listen to a paper that is read in a convenient way for understanding its contents.
 
+![DataFlow](DataFlow.PNG)
 
 The code is comprised of three major pieces. 
 1. A CNN that parses a PNG/PDF document for text, math, and figures.
 2. A translator that uses open source software to convert the parsed pdf into a full LATEX document.
 3. A text to speech system tied to a decision tree that allows the user to listen along to the document at their own speed.
 
-![alt text](Capture.PNG)
+![Sample UI](Capture.PNG)
 
-##Descriptive Video!
+## Descriptive Video!
 
 <a href="http://www.youtube.com/watch?feature=player_embedded&v=f8mBAKDy9n0
 " target="_blank"><img src="http://img.youtube.com/vi/f8mBAKDy9n0/0.jpg" 
